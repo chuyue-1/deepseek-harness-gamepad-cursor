@@ -82,6 +82,21 @@ powershell -ExecutionPolicy Bypass -File .\scripts\build-client.ps1
 
 ---
 
+## GitHub Topics / 推荐标签
+
+Add these topics to the GitHub repository so it is easier to discover:
+
+在 GitHub 仓库设置中添加以下 Topics，方便被搜索/发现：
+
+```text
+dsh-plugin
+deepseek-harness
+gamepad
+cursor
+```
+
+---
+
 ## Authorship / 作者声明
 
 All code in this repository was written by DeepSeek.
