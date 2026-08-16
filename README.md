@@ -53,9 +53,9 @@ cd deepseek-harness-gamepad-cursor
 powershell -ExecutionPolicy Bypass -File .\scripts\install.ps1
 ```
 
-Restart `dsh web` or `DSH-Web-Launcher.exe` after installation.
+Restart `dsh web` after installation (or use whatever way you normally launch DSH).
 
-安装后重启 `dsh web` 或 `DSH-Web-Launcher.exe`。
+安装后重启 `dsh web`，或使用你平时启动 DSH 的方式。
 
 ## Uninstall / 卸载
 

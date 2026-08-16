@@ -66,4 +66,4 @@ if ($hasPlugin) {
   Write-Host 'Patch updated.'
 }
 
-Write-Host 'Done. Please restart dsh web / DSH-Web-Launcher.exe.'
+Write-Host 'Done. Please restart dsh web (or your DSH launcher).'

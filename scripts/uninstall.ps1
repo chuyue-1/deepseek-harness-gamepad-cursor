@@ -1,4 +1,4 @@
-﻿# Uninstall @dsh-user/gamepad-cursor from the DSH Web profile.
+# Uninstall @dsh-user/gamepad-cursor from the DSH Web profile.
 # Usage: powershell -ExecutionPolicy Bypass -File .\uninstall.ps1
 $ErrorActionPreference = 'Stop'
 
@@ -86,4 +86,4 @@ if (Test-Path -LiteralPath $patchFile) {
   Write-Host "Patch file not found, skipping: $patchFile"
 }
 
-Write-Host "Done. Please restart dsh web / DSH-Web-Launcher.exe."
+Write-Host "Done. Please restart dsh web (or your DSH launcher)."
