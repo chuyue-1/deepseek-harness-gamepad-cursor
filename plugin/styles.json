@@ -1,0 +1,77 @@
+{
+  "default": {
+    "label": "默认圆点",
+    "size": 28,
+    "frames": null
+  },
+  "priest1": {
+    "label": "牧师 1",
+    "size": 48,
+    "frames": [
+      "priests_idle/priest1/v1/priest1_v1_1.png",
+      "priests_idle/priest1/v1/priest1_v1_2.png",
+      "priests_idle/priest1/v1/priest1_v1_3.png",
+      "priests_idle/priest1/v1/priest1_v1_4.png"
+    ]
+  },
+  "priest2": {
+    "label": "牧师 2",
+    "size": 48,
+    "frames": [
+      "priests_idle/priest2/v1/priest2_v1_1.png",
+      "priests_idle/priest2/v1/priest2_v1_2.png",
+      "priests_idle/priest2/v1/priest2_v1_3.png",
+      "priests_idle/priest2/v1/priest2_v1_4.png"
+    ]
+  },
+  "priest3": {
+    "label": "牧师 3",
+    "size": 48,
+    "frames": [
+      "priests_idle/priest3/v1/priest3_v1_1.png",
+      "priests_idle/priest3/v1/priest3_v1_2.png",
+      "priests_idle/priest3/v1/priest3_v1_3.png",
+      "priests_idle/priest3/v1/priest3_v1_4.png"
+    ]
+  },
+  "skeleton1": {
+    "label": "骷髅战士 1",
+    "size": 48,
+    "frames": [
+      "monsters_idle/skeleton1/v1/skeleton_v1_1.png",
+      "monsters_idle/skeleton1/v1/skeleton_v1_2.png",
+      "monsters_idle/skeleton1/v1/skeleton_v1_3.png",
+      "monsters_idle/skeleton1/v1/skeleton_v1_4.png"
+    ]
+  },
+  "skeleton2": {
+    "label": "骷髅战士 2",
+    "size": 48,
+    "frames": [
+      "monsters_idle/skeleton2/v1/skeleton2_v1_1.png",
+      "monsters_idle/skeleton2/v1/skeleton2_v1_2.png",
+      "monsters_idle/skeleton2/v1/skeleton2_v1_3.png",
+      "monsters_idle/skeleton2/v1/skeleton2_v1_4.png"
+    ]
+  },
+  "skull": {
+    "label": "骷髅头",
+    "size": 44,
+    "frames": [
+      "monsters_idle/skull/v1/skull_v1_1.png",
+      "monsters_idle/skull/v1/skull_v1_2.png",
+      "monsters_idle/skull/v1/skull_v1_3.png",
+      "monsters_idle/skull/v1/skull_v1_4.png"
+    ]
+  },
+  "vampire": {
+    "label": "吸血鬼",
+    "size": 48,
+    "frames": [
+      "monsters_idle/vampire/v1/vampire_v1_1.png",
+      "monsters_idle/vampire/v1/vampire_v1_2.png",
+      "monsters_idle/vampire/v1/vampire_v1_3.png",
+      "monsters_idle/vampire/v1/vampire_v1_4.png"
+    ]
+  }
+}

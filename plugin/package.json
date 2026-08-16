@@ -1,0 +1,22 @@
+{
+  "name": "@dsh-user/gamepad-cursor",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Gamepad-controlled virtual cursor for DSH Web: circle-dot default, animated sprite styles, mouse-compatible clicks and hover.",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime"
+      ]
+    }
+  }
+}
