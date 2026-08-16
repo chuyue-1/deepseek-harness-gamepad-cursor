@@ -24,6 +24,7 @@ A gamepad-controlled virtual cursor plugin for **DeepSeek Harness Web**.
 ```text
 deepseek-harness-gamepad-cursor/
 ├── README.md              # Bilingual readme / 双语说明
+├── NOTICE.md              # Authorship notice / 作者声明
 ├── plugin/                # DSH Web plugin source / 插件本体
 │   ├── package.json
 │   ├── lib/
@@ -77,6 +78,15 @@ powershell -ExecutionPolicy Bypass -File .\scripts\build-client.ps1
 
 - [Usage Guide / 使用教程](docs/USAGE.md)
 - [Style Customization / 改样式教程](docs/CUSTOMIZATION.md)
+- [Notice / 声明](NOTICE.md)
+
+---
+
+## Authorship / 作者声明
+
+All code in this repository was written by DeepSeek.
+
+本仓库中的所有代码均由 DeepSeek 编写。
 
 ---
 
