@@ -18,7 +18,18 @@
     "./client": "./client.js",
     "./package.json": "./package.json"
   },
+  "files": [
+    "lib/index.js",
+    "client.js",
+    "styles.json",
+    "cordis.patch.yml",
+    "assets",
+    "README.md"
+  ],
   "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
     "client": {
       "platform": "web",
       "immediately": true,

@@ -21,6 +21,18 @@ From the repository root:
 powershell -ExecutionPolicy Bypass -File .\scripts\install.ps1
 ```
 
+Or install this package directly with the official `dsh` plugin command from your harness directory:
+
+```sh
+dsh plugin --profile web add ../deepseek-harness-gamepad-cursor/plugin
+```
+
+If `dsh` is not on your `PATH` (common on Windows), use:
+
+```sh
+npx --yes @deepseek-ai/dsh plugin --profile web add ../deepseek-harness-gamepad-cursor/plugin
+```
+
 Restart `dsh web`, or use whatever way you normally launch DSH.
 
 ## Uninstall

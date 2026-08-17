@@ -1,0 +1,4 @@
+# @dsh-user/gamepad-cursor bundle patch: registers the browser plugin in the DSH Web profile.
+- insert:
+    - id: gamepad-cursor
+      name: '@dsh-user/gamepad-cursor'
