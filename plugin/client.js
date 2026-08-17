@@ -942,6 +942,8 @@ window.__ModuleLoader__.load({
             evt = document.createEvent('MouseEvent');
             evt.initMouseEvent(type, true, true, window, detail || 1, pos.x, pos.y, pos.x, pos.y, false, false, false, false, button || 0, null);
           }
+          try { evt.which = button + 1; } catch (e) {}
+          try { evt.button = button; } catch (e) {}
           el.dispatchEvent(evt);
         }
 
@@ -972,6 +974,8 @@ window.__ModuleLoader__.load({
           } catch (e) {
             evt = new MouseEvent(type, opts);
           }
+          try { evt.which = button + 1; } catch (e) {}
+          try { evt.button = button; } catch (e) {}
           el.dispatchEvent(evt);
         }
 
@@ -1180,7 +1184,7 @@ window.__ModuleLoader__.load({
             var b = pad.buttons[1];
             var x = pad.buttons[2];
             var y = pad.buttons[3];
-            var r3 = pad.buttons[10];
+            var r3 = pad.buttons[11];
 
             // Start can always show/hide the cursor.
             if (start && start.pressed && !prevButtons.get(9)) toggleEnabled();
@@ -1194,7 +1198,7 @@ window.__ModuleLoader__.load({
               prevButtons.set(1, !!(b && b.pressed));
               prevButtons.set(2, !!(x && x.pressed));
               prevButtons.set(3, !!(y && y.pressed));
-              prevButtons.set(10, !!(r3 && r3.pressed));
+              prevButtons.set(11, !!(r3 && r3.pressed));
               return;
             }
 
@@ -1231,7 +1235,7 @@ window.__ModuleLoader__.load({
               prevButtons.set(0, !!(a && a.pressed));
               prevButtons.set(1, !!(b && b.pressed));
               prevButtons.set(2, !!(x && x.pressed));
-              prevButtons.set(10, !!(r3 && r3.pressed));
+              prevButtons.set(11, !!(r3 && r3.pressed));
               return;
             }
 
@@ -1274,7 +1278,7 @@ window.__ModuleLoader__.load({
               prevButtons.set(0, !!(a && a.pressed));
               prevButtons.set(1, !!(b && b.pressed));
               prevButtons.set(2, !!(x && x.pressed));
-              prevButtons.set(10, !!(r3 && r3.pressed));
+              prevButtons.set(11, !!(r3 && r3.pressed));
               return;
             }
 
@@ -1283,7 +1287,7 @@ window.__ModuleLoader__.load({
             if (a && a.pressed && !prevButtons.get(0)) leftClick();
             if (b && b.pressed && !prevButtons.get(1)) rightClick();
             if (x && x.pressed && !prevButtons.get(2)) doubleClick();
-            if (r3 && r3.pressed && !prevButtons.get(10)) middleClick();
+            if (r3 && r3.pressed && !prevButtons.get(11)) middleClick();
 
             prevButtons.set(4, !!(lb && lb.pressed));
             prevButtons.set(5, !!(rb && rb.pressed));
@@ -1291,7 +1295,7 @@ window.__ModuleLoader__.load({
             prevButtons.set(0, !!(a && a.pressed));
             prevButtons.set(1, !!(b && b.pressed));
             prevButtons.set(2, !!(x && x.pressed));
-            prevButtons.set(10, !!(r3 && r3.pressed));
+            prevButtons.set(11, !!(r3 && r3.pressed));
           } else {
             prevButtons.set(4, false);
             prevButtons.set(5, false);
@@ -1301,7 +1305,7 @@ window.__ModuleLoader__.load({
             prevButtons.set(1, false);
             prevButtons.set(2, false);
             prevButtons.set(3, false);
-            prevButtons.set(10, false);
+            prevButtons.set(11, false);
             scrollAccum = 0;
           }
 
