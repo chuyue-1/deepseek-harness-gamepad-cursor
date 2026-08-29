@@ -49,7 +49,7 @@ window.__ModuleLoader__.load({
         pointer-events: none;
         z-index: 2147483647;
       }
-      #dsh-gamepad-cursor-root[hidden] {
+      #dsh-gamepad-cursor-root.dgc-cursor-hidden .dgc-cursor {
         display: none;
       }
       #dsh-gamepad-cursor-root .dgc-cursor {
@@ -303,7 +303,7 @@ window.__ModuleLoader__.load({
         var toast = root.querySelector('#dgc-toast');
         var settingsPanel = root.querySelector('#dgc-settings');
         var keyboardPanel = root.querySelector('#dgc-keyboard');
-        var enabled = true;
+        var enabled = false;
         var pos = loadPos();
         var vel = { x: 0, y: 0 };
         var prevButtons = new Map();
@@ -335,8 +335,9 @@ window.__ModuleLoader__.load({
         var kbRepeatTimer = 0;
         var kbShift = false;
 
-        document.documentElement.classList.add('dgc-cursor-active');
-        applyStyle();
+        // Start disabled so opening DSH leaves the native cursor untouched.
+        root.classList.add('dgc-cursor-hidden');
+        applyStyleVisual();
         updateCursorVisual();
 
         function loadPos() {
@@ -850,7 +851,7 @@ window.__ModuleLoader__.load({
           return !!getClickableElement(el);
         }
 
-        function applyStyle() {
+        function applyStyleVisual() {
           var name = STYLE_NAMES[styleIndex];
           var st = STYLES[name];
           if (!st) return;
@@ -869,7 +870,12 @@ window.__ModuleLoader__.load({
             cursor.style.height = '';
             cursor.style.backgroundImage = '';
           }
+        }
+
+        function applyStyle() {
+          applyStyleVisual();
           saveStyleIndex();
+          var st = STYLES[STYLE_NAMES[styleIndex]];
           showToast('光标样式：' + st.label + ' (' + (styleIndex + 1) + '/' + STYLE_NAMES.length + ')');
         }
 
@@ -1140,19 +1146,18 @@ window.__ModuleLoader__.load({
           styleIndex = (styleIndex + delta + STYLE_NAMES.length) % STYLE_NAMES.length;
           applyStyle();
           updateCursorVisual();
+          if (settingsOpen) updateSettingsPanel();
         }
 
         function toggleEnabled() {
           enabled = !enabled;
-          root.hidden = !enabled;
+          root.classList.toggle('dgc-cursor-hidden', !enabled);
           document.documentElement.classList.toggle('dgc-cursor-active', enabled);
           if (enabled) {
             pos = loadPos();
             updateCursorVisual();
             showToast('光标已开启');
           } else {
-            toast.classList.remove('show');
-            toastTimer = 0;
             if (settingsOpen) {
               settingsOpen = false;
               settingsPanel.hidden = true;
@@ -1161,6 +1166,7 @@ window.__ModuleLoader__.load({
               kbOpen = false;
               keyboardPanel.hidden = true;
             }
+            showToast('光标已关闭，按 F9 重新开启');
           }
         }
 
@@ -1395,13 +1401,16 @@ window.__ModuleLoader__.load({
         }
 
         function onKeyDown(e) {
-          // The only keyboard shortcut kept: toggle the virtual cursor on/off.
-          // All other keyboard handling is intentionally removed so the plugin
-          // does not interfere with normal typing / page shortcuts.
+          // Keyboard shortcuts: F9 toggles the virtual cursor, F8 cycles its
+          // style. Everything else is left alone so typing and page shortcuts
+          // keep working.
           if (e.repeat) return;
           if (e.code === 'F9') {
             e.preventDefault();
             toggleEnabled();
+          } else if (e.code === 'F8') {
+            e.preventDefault();
+            nextStyle(1);
           }
         }
 
