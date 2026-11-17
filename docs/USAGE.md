@@ -90,10 +90,27 @@ Use:
 6. Press `Y` / `B` / `Select` to close.
    按 `Y` / `B` / `Select` 关闭。
 
+## Pinyin Input / 拼音输入
+
+1. Open the virtual keyboard with `Y`, then switch to pinyin with the `拼` key (it toggles between 拼 and EN, and the mode is remembered).
+   按 `Y` 打开虚拟键盘，再用 `拼` 键切到拼音（在 拼 / EN 之间切换，模式会记住）。
+2. Type a syllable with the letter keys; the candidate strip at the top updates as you type.
+   用字母键敲一个音节，顶部候选条实时刷新。
+3. Commit with `1`-`9` (direct pick), `X` (pick the candidate selected with `LB` / `RB`), or `Space` (first candidate).
+   用 `1`-`9` 直选、`LB` / `RB` 移动后按 `X` 上屏，或按空格上屏首个候选。
+4. `Backspace` trims one pinyin letter while the buffer is not empty, and deletes text once it is empty.
+   `Backspace` 在缓冲非空时退掉一个拼音字母，缓冲为空时删除正文。
+5. `B` does the same for the buffer, and closes the keyboard when the buffer is empty.
+   `B` 对缓冲做同样的事，缓冲为空时关闭键盘。
+
+Pinyin entry is single-syllable: commit `ni`, then type `hao`. The dictionary covers 3,612 characters across 407 syllables and works fully offline; see [PINYIN.md](PINYIN.md).
+
+拼音为单音节输入：先上屏 `ni`，再敲 `hao`。字典覆盖 407 个音节 / 3,612 个汉字，完全离线；详见 [PINYIN.md](PINYIN.md)。
+
 ## FAQ / 常见问题
 
-- The virtual keyboard outputs ASCII directly and does not drive the system IME. For Chinese / IME input, use the physical keyboard.
-- 虚拟键盘直接输出英文字符，不驱动系统输入法；中文输入请使用物理键盘 + 系统输入法。
+- The pinyin layer inserts Han characters directly and does not drive the system IME. It works offline, and physical-keyboard IME input still works as usual.
+- 拼音层直接插入汉字，不驱动系统输入法。它完全离线，物理键盘 + 系统输入法照常可用。
 - If the cursor disappears, press `Start` or `F9` to show it again.
 - 如果光标消失，按手柄 `Start` 或键盘 `F9` 重新显示。
 - Press `F8` to change the cursor style; the choice is remembered across restarts.

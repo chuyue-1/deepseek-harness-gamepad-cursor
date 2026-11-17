@@ -13,6 +13,7 @@ DeepSeek Harness Web 的手柄虚拟光标插件。
 - Adjustable sensitivity and snap strength. / 灵敏度与吸附力度可调。
 - Right stick wheel, R3 middle-click. / 右摇杆模拟滚轮，R3 模拟中键。
 - On-screen virtual keyboard (English / numbers / symbols). / 屏幕虚拟键盘（英文 / 数字 / 符号）。
+- Offline pinyin keyboard mode: 407 syllables to 3,612 Han characters, candidate strip, `1`-`9` / `X` to commit. / 离线拼音键盘模式：407 个音节对应 3,612 个汉字，顶部候选条，`1`-`9` / `X` 上屏。
 - LB / RB simulate left / right arrow keys. / LB / RB 模拟左右方向键。
 - Keyboard shortcuts: `F9` toggles the cursor, `F8` cycles cursor styles. / 键盘快捷键：`F9` 开关光标，`F8` 切换光标样式。
 - Starts disabled so the native cursor is untouched when DSH opens. / 默认关闭，打开 DSH 时不改变系统光标。
@@ -64,6 +65,7 @@ plugin/
 ├── package.json       # dsh.client manifest / dsh.client 清单
 ├── lib/index.js       # Node-side no-op / Node 侧空实现
 ├── client.js          # Browser-side plugin logic / 浏览器侧插件逻辑
+├── dict-pinyin.json   # Offline pinyin dictionary / 离线拼音字典
 ├── styles.json        # Cursor style manifest / 光标样式清单
 ├── assets/cursors/    # Sprite assets / 精灵素材
 └── README.md          # This file / 本文件
@@ -71,9 +73,9 @@ plugin/
 
 ## Customization / 自定义
 
-See `../docs/CUSTOMIZATION.md`.
+See `../docs/CUSTOMIZATION.md` and `../docs/PINYIN.md`.
 
-参见 `../docs/CUSTOMIZATION.md`。
+参见 `../docs/CUSTOMIZATION.md` 与 `../docs/PINYIN.md`。
 
 After changing sprites or `styles.json`, run from the repository root:
 

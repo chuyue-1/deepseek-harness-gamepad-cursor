@@ -12,7 +12,8 @@ A gamepad-controlled virtual cursor plugin for **DeepSeek Harness Web**.
 - Default cursor style: circle with a center dot; optional animated sprite styles.
 - Right stick simulates the mouse wheel; R3 simulates middle-click.
 - Adjustable move sensitivity, wheel sensitivity, and snap strength.
-- On-screen virtual keyboard for English letters / numbers / symbols.
+- On-screen virtual keyboard for English letters / numbers / symbols, plus an offline pinyin layer for Chinese input.
+- Pinyin mode: 407 toneless syllables to 3,612 Han characters with a candidate strip; `1`-`9` / `X` commit, no system IME required.
 - LB / RB simulate the left / right arrow keys.
 - Keyboard shortcuts: `F9` toggles the virtual cursor, `F8` cycles cursor styles.
 - Starts disabled: opening DSH leaves the native cursor untouched until you enable the virtual cursor.
@@ -21,7 +22,8 @@ A gamepad-controlled virtual cursor plugin for **DeepSeek Harness Web**.
 - 默认样式为圆形 + 中心点，另有多款动画精灵样式可选。
 - 右摇杆模拟滚轮，R3 模拟鼠标中键。
 - 移动灵敏度、滚轮灵敏度、吸附力度均可调节。
-- 屏幕虚拟键盘，可输入英文 / 数字 / 符号。
+- 屏幕虚拟键盘，可输入英文 / 数字 / 符号，并内置离线拼音层用于中文输入。
+- 拼音模式：407 个无声调音节对应 3,612 个汉字，带顶部候选条，`1`-`9` / `X` 上屏，不依赖系统输入法。
 - LB / RB 模拟左右方向键。
 - 键盘快捷键：`F9` 开关虚拟光标，`F8` 切换光标样式。
 - 默认不启用：打开 DSH 不会改变系统光标，直到你手动开启虚拟光标。
@@ -38,6 +40,7 @@ deepseek-harness-gamepad-cursor/
 │   ├── package.json
 │   ├── lib/
 │   ├── client.js
+│   ├── dict-pinyin.json
 │   ├── styles.json
 │   └── assets/cursors/
 ├── scripts/               # Install / uninstall / build scripts / 脚本
@@ -46,7 +49,8 @@ deepseek-harness-gamepad-cursor/
 │   └── build-client.ps1
 ├── docs/                  # Documentation / 文档
 │   ├── USAGE.md
-│   └── CUSTOMIZATION.md
+│   ├── CUSTOMIZATION.md
+│   └── PINYIN.md
 └── assets/
     └── sprites/           # Original sprite assets / 原始素材
 ```
@@ -118,6 +122,7 @@ If you installed via `dsh plugin add` (linked install), restarting DSH is enough
 ## Documentation / 文档
 
 - [Usage Guide / 使用教程](docs/USAGE.md)
+- [Pinyin Input / 拼音输入](docs/PINYIN.md)
 - [Style Customization / 改样式教程](docs/CUSTOMIZATION.md)
 - [Notice / 声明](NOTICE.md)
 
@@ -148,5 +153,9 @@ All code in this repository was written by DeepSeek.
 
 ## Notes / 说明
 
-- The virtual keyboard outputs ASCII characters directly and does not drive the system IME. For Chinese / IME input, use the physical keyboard.
-- 虚拟键盘直接输出英文字符，不驱动系统输入法；中文输入请使用物理键盘 + 系统输入法。
+- The pinyin layer does not drive the system IME: Han characters are inserted as plain text through the same path as the ASCII keys, and it works fully offline.
+- Pinyin input is single-syllable: commit `ni`, then type `hao`. There is no word or sentence prediction.
+- Candidate ordering in `plugin/dict-pinyin.json` is partly derived from `iDvel/rime-ice` (GPL-3.0). Personal use is unaffected; regenerate the ordering from a non-GPL source before redistributing the data.
+- 拼音层不驱动系统输入法：汉字以纯文本形式、走与英文字符相同的路径插入，完全离线可用。
+- 拼音为单音节输入：先上屏 `ni`，再敲 `hao`；没有词组和整句联想。
+- `plugin/dict-pinyin.json` 的候选排序部分取自 `iDvel/rime-ice`（GPL-3.0）。自己使用不受影响；再分发这份数据前请先换成非 GPL 的排序来源。

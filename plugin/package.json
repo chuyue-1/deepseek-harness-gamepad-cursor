@@ -1,6 +1,6 @@
 {
   "name": "@dsh-user/gamepad-cursor",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
   "description": "Gamepad-controlled virtual cursor for DSH Web: circle-dot default, animated sprite styles, mouse-compatible clicks and hover.",
@@ -23,6 +23,7 @@
     "client.js",
     "styles.json",
     "cordis.patch.yml",
+    "dict-pinyin.json",
     "assets",
     "README.md"
   ],
